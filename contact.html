@@ -114,26 +114,27 @@
                     </div>
                     <div class="col-12 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="contact-form">
-                            <div id="success"></div>
-                            <form name="sentMessage" id="contactForm" method="POST" name="google-sheet" novalidate="novalidate">
+                            <div id="succes"> <h2 style="color:#16C6FE; font-size: 16px;
+                                font-weight: 700;" id="success" ></h2></div>
+                            <form   method="POST" name="google-sheet" >
                                 <div class="control-group">
-                                    <input type="text" class="form-control" id="name" name="Name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
+                                    <input type="text" class="form-control"  id="name" name="Name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="control-group">
-                                    <input type="email" class="form-control" id="email" name="Number" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
+                                    <input type="number" class="form-control" id="email" name="Number" placeholder="Your Number" required="required" data-validation-required-message="Please enter your email" />
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="control-group">
-                                    <input type="text" class="form-control" id="subject" name="Gmail" placeholder="Subject" required="required" data-validation-required-message="Please enter a subject" />
+                                    <input type="email" class="form-control" id="subject" name="Gmail" placeholder="Your Email" required="required" data-validation-required-message="Please enter a subject" />
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="control-group">
-                                    <textarea class="form-control" id="message" placeholder="Message" name="message" required="required" data-validation-required-message="Please enter your message"></textarea>
+                                    <textarea class="form-control" id="message" placeholder=" Writer Your Message Here..." name="message" required="required" data-validation-required-message="Please enter your message"></textarea>
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div>
-                                    <button class="btn" type="submit" id="sendMessageButton">Send Message</button>
+                                    <button class="btn" type="submit" >Send Message</button>
                                 </div>
                             </form>
                         </div>
@@ -189,11 +190,13 @@
         <script>
             const scriptURL = 'https://script.google.com/macros/s/AKfycbyXOkgUCHLhi2BDzugV1u9KEQHZb5wbIouHSdYuATJK4QOoa-BRUX3qnmgX_Vhu69B3/exec'
             const form = document.forms['google-sheet']
+            
           
             form.addEventListener('submit', e => {
+                const userName =  document.getElementById('name').value;
               e.preventDefault()
               fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                .then(response => document.getElementById("demo").innerHTML = " <h2> Thanks for contacting us we will reach out to you soon. </h2>")
+                .then(response => document.getElementById("success").innerHTML = ` Hey ${userName} ! Thanks for contacting us. we will reach out to you soon.`)
                 .catch(error => console.error('Error!', error.message))
             })
           </script>
