@@ -186,7 +186,7 @@ a:focus {
     width: 100%;
     margin-bottom: 45px;
     padding: 90px 0;
-    background: #ff724f;
+    background: #ffbc4f;
     overflow: hidden;
 }
 
@@ -1096,6 +1096,29 @@ a:focus {
 
 .testimonial .owl-dot.active {
     background: #343148;
+}
+
+/* Team CSS  */
+.teamPhoto {
+    /* item center */
+    /* width should cover content area only */
+    max-width: 20%;
+    max-height: 20%;
+    margin: 0 auto;
+    object-fit: cover;
+    /* animation */
+}
+
+@media (max-width: 767.98px) {
+.teamPhoto {
+    /* item center */
+    /* width should cover content area only */
+    max-width: 80%;
+    max-height: 20%;
+    margin: 0 auto;
+    object-fit: cover;
+    /* animation */
+}
 }
 
 
